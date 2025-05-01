@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+psycopg2-binary = "*"
+flask-wtf = "*"
+pylint = "*"
+python-dotenv = "~=0.13"
+
+[dev-packages]
+pylint = "*"
+
+[requires]
+python_version = "3.9"
+python_full_version = "3.9.6"
