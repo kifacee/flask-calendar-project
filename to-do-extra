@@ -1,0 +1,25 @@
+Stretch Goal: Changing days
+Add a way to change days, be it through links or a form. If you choose to use a form with month, day, and year dropdowns, add a little JavaScript to the page to handle the submit event of the form, prevent the submission, and then redirect to the appropriate URL based on the values of the drop downs.
+
+You could also use an <input type="date"> to do this which will render the browser's built-in calendar control. You'd then use JavaScript the same way to read its value and change the location based on the value.
+
+Stretch Goal: Jinja time
+You have the appointments coming to you in a list in order of their start date. Use your programming ability to get rid of the table in the main.html template and replace it with something like Google's daily layout of appointments. Don't worry about overlapping appointments. If you have some, delete them from your database to make this easier on you.
+
+Daily layout
+
+This type task is something that a lot of full-stack developers get presented many times over their career: given a bunch of data, make it presentable to humans. Most likely, eventually, some human will see the output of the code that you've written. You need to consider human factors when presenting that output. Data transformation and enrichment are tasks that most software engineers must do to get their features implemented.
+
+Flask is pretty aggressive with its caching of static assets. Make sure you open your developer tools, go to the "Network" tab, and click on "Disable cache" if it isn't already checked. Leave the tools open while you work, otherwise the "Disable cache" is ignored.
+
+To start doing this, create a static directory in your app directory. Then, create a styles directory under the static directory. In there, create a file named calendar.css.
+
+In the main.html, in the head element, link that stylesheet to your HTML page. To figure out the path for it, please refer to Routing In Flask.
+
+Now, change the Jinja instructions, HTML, and add CSS to get something akin to the daily layout in the screenshot above. You can also do data manipulation in the daily method to make it easier to use in the Jinja template. For example, you can have code that looks like this:
+
+rows = [(id, start, (end - start).seconds / 60 // 15, title)
+        for id, start, end, title in rows]
+which will transform the third entry in each of the rows to the number of 15-minute blocks the appointment takes.
+
+A nice way to attack this problem is to write the HTML that you would like to use in the Jinja template. Then, figure out how to make the data fit what you want to output.

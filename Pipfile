@@ -5,10 +5,10 @@ name = "pypi"
 
 [packages]
 flask = "*"
-psycopg2-binary = "*"
-flask-wtf = "*"
 pylint = "*"
 python-dotenv = "~=0.13"
+psycopg2-binary = "*"
+flask-wtf = "~=0.14"
 
 [dev-packages]
 pylint = "*"

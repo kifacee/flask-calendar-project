@@ -8,5 +8,80 @@
 
     <body>
         <h1>Calendar working1</h1>
+        <!-- action='.' causes it to submit to the same path the form resides on -->
+         <!-- url_for is safer when paths have params. jinja automatically makes url_for available in templates -->
+         <form method="post" action="{{ url_for('main.daily', year=year, month=month, day=day) }}">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.name.label }}<br>
+                {{ form.name(class="form-control", placeholder="Your name") }}
+                {% for error in form.name.errors %}
+                  <small class="text-danger">{{ error }}</small>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.start_date.label }}<br>
+                {{ form.start_date() }}
+                {{ form.start_time() }}
+                {% for error in form.start_time.errors %}
+                <span class="errors" style="color: red;">{{ error }}</span>
+                {% endfor %}
+                {% for error in form.start_time.errors %}
+                <span class="errors" style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.end_date.label }}<br>
+                {{ form.end_date() }}
+                {{ form.end_time() }}
+                {% for error in form.end_date.errors %}
+                <span class="errors" style="color: red;">{{ error }}</span>
+                {% endfor %}
+                {% for error in form.end_time.errors %}
+                <span class="errors" style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.description.label }}<br>
+                {{ form.description(rows=4, cols=40, class="form-control", placeholder="Reason for your appointment") }}
+                {% for error in form.description.errors %}
+                <span class="errors" style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.private.label }}
+                {{ form.private() }}
+                <!-- don't need error check on boolean fields unless it is required -->
+            </p>
+
+            <p>{{ form.submit() }}</p>
+            <!-- submit fields are not user input, so they won't have errors to check -->
+        </form>
+        <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Start</th>
+                <th>End</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- loop here to create rows -->
+                {% for row in rows %}
+                <tr>
+                  <td>{{ row['name'] }}</td>
+                  <!-- use strftime to format date objects -->
+                   <!-- using RealDictCursor in psycopg to turn each result into a dictionary -->
+                    <!-- so i can access data by database column name. see routes.py -->
+                  <td>{{ row['start_datetime'].strftime("%H:%M") }}</td>
+                  <td>{{ row['end_datetime'].strftime("%H:%M") }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
     </body>
 </html>

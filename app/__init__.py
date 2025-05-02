@@ -10,3 +10,8 @@ print("SECRET KEY IS: ", app.config["SECRET_KEY"])
 # app.config.update({'SECRET_KEY': os.environ.get('SECRET_KEY')}) #update the config dictionary with the secret key env variable
 
 app.register_blueprint(routes.bp)       #register the 'main' blueprint
+
+
+# User name	calendar_this
+# Database name	calendar_this_dev
+# Password	Ku9rSyXD
