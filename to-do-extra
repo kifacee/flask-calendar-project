@@ -23,3 +23,21 @@ rows = [(id, start, (end - start).seconds / 60 // 15, title)
 which will transform the third entry in each of the rows to the number of 15-minute blocks the appointment takes.
 
 A nice way to attack this problem is to write the HTML that you would like to use in the Jinja template. Then, figure out how to make the data fit what you want to output.
+
+
+
+NOTES
+
+it's definitely portfolio-worthy, even in its current state.
+
+Here’s why it’s a solid addition:
+
+Full-stack integration: You’re connecting Flask (backend), Jinja2 templates (frontend), PostgreSQL via psycopg2, and WTForms (form handling/validation). That shows you understand the flow from client to server to database and back.
+
+Clean organization: You’re using blueprints, separating concerns into helper functions, and doing proper validation. These are signs of thoughtful, scalable development.
+
+Real-world use case: A calendar/appointment system is a concrete example of a real-world app. Recruiters and devs can immediately understand what it does and why it’s useful.
+
+Your own understanding: You’ve debugged, asked great questions, and deeply understood the tools you're using. That shows even more than the code itself.
+
+If you come back to it later, yes — adding JavaScript interactivity (like changing days without reloads), styling with CSS or Bootstrap, and maybe even persisting user sessions with login functionality would make it shine even more.
