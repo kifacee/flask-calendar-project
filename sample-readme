@@ -1,0 +1,82 @@
+📆 Flask Calendar App
+A web-based calendar application built with Flask, WTForms, PostgreSQL, and Jinja2. Lets users create and view appointments for a given day.
+
+🚀 Features
+Add daily appointments with:
+
+Start & end date/time
+
+Description and privacy setting
+
+Form validation with custom date-time checks
+
+PostgreSQL database integration
+
+Clean HTML templates using Jinja2
+
+📸 Screenshots
+(Optional – drop in 1–2 screenshots of the form and the calendar view here)
+
+🛠️ Tech Stack
+Python 3.9+
+
+Flask
+
+PostgreSQL
+
+psycopg2
+
+WTForms
+
+🔧 Installation
+Clone the repo
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/flask-calendar-app.git
+cd flask-calendar-app
+Set up a virtual environment
+
+bash
+Copy
+Edit
+python3 -m venv .venv
+source .venv/bin/activate
+Install dependencies
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Set up environment variables
+
+Create a .env file or set the following in your terminal:
+
+ini
+Copy
+Edit
+DB_USER=your_user
+DB_PASS=your_pass
+DB_NAME=your_db
+DB_HOST=localhost
+Initialize the database
+
+Run the SQL schema:
+
+bash
+Copy
+Edit
+psql -U your_user -d your_db -f app/database_init.sql
+Start the app
+
+bash
+Copy
+Edit
+flask run
+🧪 To Do / Possible Improvements
+Navigation between days (via JavaScript)
+
+Better UI/UX styling with Bootstrap or CSS
+
+User accounts and authentication
